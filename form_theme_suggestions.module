@@ -22,12 +22,19 @@ function form_theme_suggestions_theme_suggestions_form_element(array $variables)
 
   $title = strtolower($title);
   $type = $variables['element']['#type'];
+  $filter = [
+    ' ' => '_',
+    '-' => '_',
+    '/' => '_',
+    '[' => '_',
+    ']' => '',
+  ];
 
   return [
     implode('__', [
       'form_element',
-      Html::cleanCssIdentifier($type),
-      Html::cleanCssIdentifier($title),
+      Html::cleanCssIdentifier($type, $filter),
+      Html::cleanCssIdentifier($title, $filter),
     ]),
   ];
 }
