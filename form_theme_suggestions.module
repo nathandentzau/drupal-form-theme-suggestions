@@ -5,9 +5,12 @@
  * Drupal Form Theme Suggestions.
  */
 
- /**
-  * Implements hook_theme_suggestions_HOOK().
-  */
+use Drupal\Component\Utility\Html;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function form_theme_suggestions_theme_suggestions_form_element(array $variables) {
   $title = $variables['element']['#title'];
 
