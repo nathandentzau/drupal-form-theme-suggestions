@@ -1,0 +1,5 @@
+name: Form Theme Suggestions
+description: A simple module to add form element theme suggestions.
+type: module
+package: Theme
+core: 8.x

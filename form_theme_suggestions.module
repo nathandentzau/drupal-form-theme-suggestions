@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Drupal Form Theme Suggestions.
+ */
+
+ /**
+  * Implements hook_theme_suggestions_HOOK().
+  */
+function form_theme_suggestions_theme_suggestions_form_element(array $variables) {
+  $title = $variables['element']['#title'];
+
+  // If the title is a translated string then only turn the (hopefully) english
+  // title as a theme suggestion.
+  if ($title instanceof TranslatableMarkup) {
+    $title = $title->getUntranslatedString();
+  }
+
+  $title = strtolower($title);
+  $type = $variables['element']['#type'];
+
+  return [
+    implode('__', [
+      'form_element',
+      Html::cleanCssIdentifier($type),
+      Html::cleanCssIdentifier($title),
+    ]),
+  ];
+}
